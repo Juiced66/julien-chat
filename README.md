@@ -29,5 +29,6 @@ Jour 2 :
 - Definition des events et processus 
 - Mise en place de mon nouvel écran ( 24 pouces vertical <3 )
 - Création de l'input de la bulle
-- Test HTML et CSS 
+- Test HTML et CSS
+- Bataille avec Git (j'ai gagné) 
 A demain
