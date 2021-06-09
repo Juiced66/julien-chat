@@ -1,51 +1,160 @@
+/* Global app styles */
+body {
+  background: url(../src/img/plus-beau-que-blanc.jpg) center, #1e48bb;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: relative;
+  align-content: center;
+}
+.container{
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+}
 .app {
-  background-color: #0e4bef;
   border-radius: 20px;
   height: 500px;
-  position: relative;
+  margin-top: 500px; /*Pour masquer la fenetre a l'état initial*/
+  display: flex;
+  flex-direction: column;
   width: 350px;
+  /* transform: translateY(-64 px); état réduit */
+  transform: translateY(-500px);
 }
 
+/*  Header styles */
 header {
-  height: 64px;
-  background-color: #0e6610;
-  width: 100%;
+  background-color: #0e4bef;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
   display: flex;
+  height: 64px;
   justify-content: flex-end;
-  border-radius: 10px 10px 5px 5px;
+  position: relative;
+  width: 100%;
 }
-    header > span:first-child {
-    padding-top: 3px;
-    font-size: 1.2em;
-    font-weight: 900;
-    }
-    span {
-    margin-right: 10px;
-    }
-    span {
-    margin-top: 10px;
-    }
-    
+.agentPic {
+  background:url(../src/img/avatar.jpg) 45%  45%  border-box;
+  background-size: 50px ;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 50px;
+  left: 20px;
+  position: absolute;
+  top: 7px;
+  width: 50px;
+  overflow: hidden;
+}
+.agentName{
+  color : black;
+  font-weight: bold;
+  position: absolute;
+  top: 18px;
+  left: 90px;
+}
+em{
+  font-size: 0.75em;
+  color :rgba(0,0,0,0.8);
+  font-weight: bold;
+}
+header > span:first-child {
+  font-size: 1.2em;
+  font-weight: 900;
+  padding-top: 3px;
+}
+span {
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+/* Chat area styles*/
+.chatArea {
+  border: 1px solid black;
+  background-color: rgba(99, 93, 93, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: auto; /* régle le pb de scroll */
+  overflow-y: scroll;
+  height: 356px;
+}
+.chatArea::-webkit-scrollbar {
+  width: 7px;
+  height: 8px;
+  background-color: #aaa;
+}
+.msgAgent {
+  background-color: #93c1ee;
+  border: 1px solid black;
+  color: white;
+  padding: 18px;
+  line-height: 18px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 75%;
+}
+.msgUser {
+  align-self: flex-end;
+  background-color: #c19bd1;
+  border: 1px solid black;
+  border-radius: 7px;
+  color: white;
+  line-height: 18px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 18px;
+  text-align : right;
+  width: 75%;
+}
+.msgInfo {
+  align-self: center;
+  background-color: #ce99ff;
+  border: 1px solid black;
+  border-radius: 7px;
+  color: white;
+  line-height: 26px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 18px;
+  text-align: center;
+  width: 60%;
+}
+
+/* Footer styles*/
 footer {
   background-color: #c0c0c0;
-  position: absolute;
   height: 80px;
   width: 100%;
   bottom: 0px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-radius: 0 0 10px 10px;
+}
+.inputText {
+  height: 70%;
+  flex-basis: 78%;
   border-radius: 5px 5px 10px 10px;
 }
-    .inputText {
-    height: 70%;
-    flex-basis: 78%;
-    border-radius: 5px 5px 10px 10px;
-    }
-    .sendButton {
-    width: 35px;
-    height: 35px;
-    background-color: red;
-    clip-path: polygon(95% 50%, 0 0, 0 100%);
-    box-shadow: 0px 8px 15px rgb(0, 0, 0, 0.7);
-    }
+.sendButton {
+  width: 35px;
+  height: 35px;
+  background-color: red;
+  clip-path: polygon(95% 50%, 0 0, 0 100%);
+  box-shadow: 0px 8px 15px rgb(0, 0, 0, 0.7);
+}
+.sendButton:hover{
+  background-color: rgb(18, 159, 18);
+  transform : scale(1.2);
+  transition : transform 0.2s ;
+}
+

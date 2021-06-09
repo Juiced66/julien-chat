@@ -21,13 +21,21 @@ Jour 1 :
 - Constatation d'un besoin d'écran supplémentaire
 - Panne d'électricité
 - Mise en forme plus approfondis du projet de base
-A demain
+- A demain
 
 Jour 2 : 
+
 - Maquetage à la main (promis, je garde tout !)
 - Definition de tous les éléments UI de la version 1
 - Definition des events et processus 
 - Mise en place de mon nouvel écran ( 24 pouces vertical <3 )
 - Création de l'input de la bulle
 - Test HTML et CSS 
-A demain
+- A demain
+
+Jour 3 : 
+
+- Fin des tests HTML/CSS (je dois encore refactoriser les messages).
+- A demain
+
+![jour3](/uploads/f277dfcd085bab2e8977936c6061ba88/jour3.png)
