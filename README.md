@@ -40,8 +40,6 @@ Jour 3 :
 - A demain
 
 ![jour3](/uploads/f277dfcd085bab2e8977936c6061ba88/jour3.png)
-=======
-- Test HTML et CSS
-- Bataille avec Git (j'ai gagné) 
-A demain
->>>>>>> 1e03aa8ec3ed105b5fb4e0d70da0a7a1d46866db
+
+photo souvenir !
+
