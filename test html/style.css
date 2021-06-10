@@ -2,7 +2,7 @@
 body {
   background: url(../src/img/plus-beau-que-blanc.jpg) center, #1e48bb;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
   position: relative;
   align-content: center;
 }
-.container{
+.container {
   width: 400px;
   height: 500px;
   overflow: hidden;
@@ -18,11 +18,14 @@ body {
 .app {
   border-radius: 20px;
   height: 500px;
-  margin-top: 500px; /*Pour masquer la fenetre a l'état initial*/
+  /*Pour masquer la fenetre a l'état initial*/
+  margin-top: 500px;
   display: flex;
   flex-direction: column;
   width: 350px;
-  /* transform: translateY(-64 px); état réduit */
+  /* état intermédiaire */
+  /* transform: translateY(-64px);  */
+  /*Etat Ouvert */
   transform: translateY(-500px);
 }
 
@@ -38,8 +41,8 @@ header {
   width: 100%;
 }
 .agentPic {
-  background:url(../src/img/avatar.jpg) 45%  45%  border-box;
-  background-size: 50px ;
+  background: url(../src/img/avatar.jpg) 45% 45% border-box;
+  background-size: 50px;
   border: 1px solid black;
   border-radius: 50%;
   height: 50px;
@@ -49,16 +52,16 @@ header {
   width: 50px;
   overflow: hidden;
 }
-.agentName{
-  color : black;
+.agentName {
+  color: black;
   font-weight: bold;
   position: absolute;
   top: 18px;
   left: 90px;
 }
-em{
+em {
   font-size: 0.75em;
-  color :rgba(0,0,0,0.8);
+  color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
 }
 header > span:first-child {
@@ -73,14 +76,15 @@ span {
 
 /* Chat area styles*/
 .chatArea {
+  position: relative;
   border: 1px solid black;
   background-color: rgba(99, 93, 93, 0.85);
   display: flex;
   flex-direction: column;
+  height: 356px;
   justify-content: flex-start;
   flex-wrap: auto; /* régle le pb de scroll */
   overflow-y: scroll;
-  height: 356px;
 }
 .chatArea::-webkit-scrollbar {
   width: 7px;
@@ -97,7 +101,42 @@ span {
   border-radius: 7px;
   margin-top: 10px;
   margin-left: 10px;
+  position: relative;
   width: 75%;
+}
+.label {
+  position: absolute;
+  top: -2em;
+  font-size: 10px;
+}
+.msgAgent > .label,
+.msgInfo > .label {
+  left: 10px;
+}
+.msgUser > .label {
+  right: 10px;
+}
+
+.isTypingBox {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20px;
+  left: 5px;
+  top: 5px;
+  width: 60px;
+  position: sticky;
+  z-index: 1;
+}
+.isTyping {
+  transform: translateY(-17px);
+  font-size: 50px;
+  font-weight: bold;
+  /* padding-bottom: 0.8em; */
+  align-self: center;
 }
 .msgUser {
   align-self: flex-end;
@@ -110,7 +149,8 @@ span {
   margin-right: 10px;
   margin-top: 10px;
   padding: 18px;
-  text-align : right;
+  position: relative;
+  text-align: right;
   width: 75%;
 }
 .msgInfo {
@@ -125,8 +165,16 @@ span {
   margin-right: 10px;
   margin-top: 20px;
   padding: 18px;
+  position: relative;
   text-align: center;
   width: 60%;
+}
+.msgLog {
+  padding-top: 5px;
+  color: #fafafa;
+  align-self: center;
+  text-align: center;
+  font-size: 12px;
 }
 
 /* Footer styles*/
@@ -152,9 +200,8 @@ footer {
   clip-path: polygon(95% 50%, 0 0, 0 100%);
   box-shadow: 0px 8px 15px rgb(0, 0, 0, 0.7);
 }
-.sendButton:hover{
+.sendButton:hover {
   background-color: rgb(18, 159, 18);
-  transform : scale(1.2);
-  transition : transform 0.2s ;
+  transform: scale(1.2);
+  transition: transform 0.2s;
 }
-
