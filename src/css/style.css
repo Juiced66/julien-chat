@@ -11,9 +11,10 @@ body {
   align-content: center;
 }
 .container {
-  width: 400px;
   height: 500px;
+  margin-top: 10px;
   overflow: hidden;
+  width: 400px;
 }
 .app {
   border-radius: 20px;
@@ -189,9 +190,10 @@ footer {
   border-radius: 0 0 10px 10px;
 }
 .inputText {
-  height: 70%;
-  flex-basis: 78%;
   border-radius: 5px 5px 10px 10px;
+  /* flex-basis: 78%; */
+  height: 70%;
+  resize:none;
 }
 .sendButton {
   width: 35px;

@@ -43,3 +43,11 @@ Jour 3 :
 
 photo souvenir !
 
+Jour 4 : 
+
+- Ajout de classes CSS pour afficher les logs du chat et améliorer l'UX
+- Maquetage de la zone de saisie utilisateur par mon camarade Hadrien 
+- Ajout des composants manquant au fonctionnement du chat dans l'arborescence
+- Premiers rendus React
+- A demain
+
