@@ -6,6 +6,9 @@
  */
 
 import React from "react";
+import ReduceButton from '../Buttons/ReduceButton'
+import MaximizeButton from '../Buttons/MaximizeButton'
+import CloseButton from '../Buttons/CloseButton'
 
 export class Header extends React.Component {
   render() {
@@ -15,8 +18,9 @@ export class Header extends React.Component {
         <div className="agentName">
           Wilson <em>@Subaru_staff</em>
         </div>
-        <span>─</span>
-        <span>❌</span>
+        <MaximizeButton />
+        <ReduceButton />
+        <CloseButton />
       </header>
     );
   }
