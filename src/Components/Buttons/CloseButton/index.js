@@ -10,4 +10,4 @@ export class CloseButton extends React.Component {
   }
 }
 
-export default ReduceButton;
+export default CloseButton;

@@ -1,5 +1,5 @@
 import React from 'react';
-// import {SendButton} from '../Buttons/SendButton'
+import SendButton from '../Buttons/SendButton'
 
 
 export class InputText extends React.Component {
@@ -9,6 +9,7 @@ export class InputText extends React.Component {
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleCLick = this.handleCLick.bind(this);
     }
   
     handleChange(e) {
@@ -16,15 +17,26 @@ export class InputText extends React.Component {
     }
   
     handleSubmit(e) {
-    //TODO : Envoyer le message de l'user
+    const message = e.target[0].innerHTML 
+    console.log(message)
      e.preventDefault();
+    }
+
+    handleCLick(e){
+      e.target.select()
+      e.preventDefault()
     }
   
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-            <textarea className="inputText" type="text" value={this.state.value} onChange={this.handleChange} />
-            {/* <SendButton /> */}
+            <textarea className="inputText" 
+              type="text" 
+              value={this.state.value} 
+              onChange={this.handleChange}
+              onClick={this.handleCLick} 
+              />
+            <SendButton />
         </form>
       );
     }
