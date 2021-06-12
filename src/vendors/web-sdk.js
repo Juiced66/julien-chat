@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*!
  * Copyright Zendesk, Inc.
  *

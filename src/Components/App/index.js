@@ -2,6 +2,9 @@ import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import ChatArea from "../ChatArea";
+import InputText from "../InputText";
+import SendButton from "../Buttons/SendButton";
+import zChat from "../../vendors/web-sdk";
 
 
 
@@ -20,8 +23,10 @@ const getMessages = () => {
     return ['salut','me gusta bravas']
 }
 
-const sendMessages = () => {
-  //envoyer les messages du User
+const sendMessages = (message) => {
+  zChat.sendChatMsg(message, err => {
+  console.log(err)
+})
 
 }
 
@@ -36,7 +41,12 @@ let isTyping = false //evenement envoyé par Zendesk
       <div className="app">
         <Header />
         <ChatArea messages={getMessages()} />
-        <Footer />
+        <Footer >
+          <InputText >
+            <SendButton />
+          </InputText >
+
+        </Footer>
       </div>
     </div>
   );

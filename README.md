@@ -30,7 +30,6 @@ Jour 2 :
 - Definition des events et processus 
 - Mise en place de mon nouvel écran ( 24 pouces vertical <3 )
 - Création de l'input de la bulle
-<<<<<<< HEAD
 - Test HTML et CSS 
 - A demain
 
