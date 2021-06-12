@@ -3,11 +3,14 @@ import React from "react";
 
 export class SendButton extends React.Component {
   
+  handleClick(e){
+
+  }
   
   render() {
     return (
        
-           <button type="submit" className="sendButton" value="" />
+           <button type="button" className="sendButton" value="" />
       
     );
   }
