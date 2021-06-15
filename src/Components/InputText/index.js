@@ -5,10 +5,9 @@ export class InputText extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "Saisissez votre message" };
-
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleCLick = this.handleCLick.bind(this);
   }
 
@@ -17,6 +16,8 @@ export class InputText extends React.Component {
   }
 
   handleSubmit(e) {
+    if(document.querySelector(".inputText").value.trim() === '') return
+
     const message = document.querySelector(".inputText").value;
 
     zChat.sendChatMsg(message, function (err) {
@@ -24,13 +25,26 @@ export class InputText extends React.Component {
         console.log(err);
       }
     });
-    e.preventDefault();
-    this.props.handleUserMsg(message)
+
+    const storedMessage = {
+      nick : 'visitor',
+      msg : message
+    }
+
+    e.preventDefault()
+    this.props.handleUserMsg(storedMessage)
     this.setState({ value: "" });
+  }
+  handleKeyPress(e){
+    
+    if(e.key === 'Enter'){
+      this.handleSubmit(e)
+    }
   }
 
   handleCLick(e) {
-    e.target.select();
+    e.target.value=''
+    e.target.value.trim()
     e.preventDefault();
   }
 
@@ -44,8 +58,9 @@ export class InputText extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
             onClick={this.handleCLick}
+            onKeyDown={this.handleKeyPress}
           />
-          <button type="button" onClick={this.handleSubmit}></button>
+          <button type="button"  onClick={this.handleSubmit}>Send</button>
         </form>
       </footer>
     );

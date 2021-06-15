@@ -116,7 +116,7 @@ body {
     line-height: 18px;
     font-size: 16px;
     border-radius: 7px;
-    margin-top: 10px;
+    margin-top: 22px;
     margin-left: 10px;
     position: relative;
     width: 75%;
@@ -164,7 +164,7 @@ body {
     line-height: 18px;
     font-size: 16px;
     margin-right: 10px;
-    margin-top:20px;
+    margin-top:22px;
     padding: 18px;
     position: relative;
     text-align: right;
@@ -187,11 +187,12 @@ body {
     width: 60%;
   }
   .msgLog {
-    padding-top: 5px;
-    color: #fafafa;
     align-self: center;
-    text-align: center;
+    color: #fafafa;
     font-size: 12px;
+    margin-top: 5px;
+    padding-top: 5px;
+    text-align: center;
   }
   
   /* Footer styles*/

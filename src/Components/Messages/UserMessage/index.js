@@ -4,16 +4,17 @@ export class UserMessage extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            value : props.value,
+            msg : props.msg,
             name : props.name
         }
     }
   
     render() {
+        console.log(this.state.msg)
     return (
         <div className="msgUser">
             <div className="label">{this.state.name}</div>
-            {this.state.value}
+            {this.state.msg}
         </div>
     );
   }

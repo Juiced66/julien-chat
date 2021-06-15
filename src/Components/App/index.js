@@ -11,7 +11,8 @@ dotenv.config()
  function connectZendesk(){
     //Connection au ticket de l'user 
      zChat.init({
-      account_key : 'wug0jwSbeWxiSqkZMOkhTGFCy9CYHbBH'
+      account_key : 'wug0jwSbeWxiSqkZMOkhTGFCy9CYHbBH',
+      suppress_console_error : true,
     })
   
     // Si vide création

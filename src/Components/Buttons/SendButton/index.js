@@ -10,7 +10,7 @@ export class SendButton extends React.Component {
   render() {
     return (
        
-           <button type="button" className="sendButton" value="" />
+           <button type="button" className="sendButton" value="send" />
       
     );
   }
