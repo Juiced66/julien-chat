@@ -12,7 +12,7 @@ Mes outils :
 - https://api.zopim.com/web-sdk/
 
     Exemple d'application par Zendesk : 
-- https://github.com/zendesk/zopim-chat-web-sdk-sample-app ( pas<em> encore </em>réussi a la faire tourner )
+- https://github.com/zendesk/zopim-chat-web-sdk-sample-app 
 
 Jour 1 : 
 - Création de l'app React : create-react-app
@@ -50,3 +50,6 @@ Jour 4 :
 - Premiers rendus React
 - A demain
 
+Jour 5 - 6 :
+
+- Affichage correct des messages (utilisateur, agent et log)
