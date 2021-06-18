@@ -13,6 +13,7 @@ export class InputText extends React.Component {
 
   handleChange(e) {
     this.setState({ value: e.target.value });
+    zChat.sendTyping(true)
   }
 
   handleSubmit(e) {
@@ -34,6 +35,7 @@ export class InputText extends React.Component {
     e.preventDefault()
     this.props.handleUserMsg(storedMessage)
     this.setState({ value: "" });
+    zChat.sendTyping(false)
   }
   handleKeyPress(e){
     

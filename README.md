@@ -53,3 +53,24 @@ Jour 4 :
 Jour 5 - 6 :
 
 - Affichage correct des messages (utilisateur, agent et log)
+
+
+Jour 7 : 
+- Fin de la version 1 :
+
+    Features :
+    - Envoi d'un message et affichage dans le chat
+    - Reception d'un message et affichage dans le chat
+    - Maintient des messages dans le frontend
+    - Signalisation de l'état des deux participants (est en train d'écrire ou non)
+    - Event au click pour vider l'input
+
+    Tout est fonctionnel et débuggé mais il persiste un peu de travail sur la CSS.
+
+Prochaine version :
+- Style du footer de la fenêtre 
+- Ajout d'animation de la fenêtre ( gerer les 3 états : initial ouvert réduit)
+- Gestion plus efficace des données dont j'ai besoin devant (recherches sur Redux ...)
+
+
+    
