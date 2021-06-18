@@ -12,7 +12,7 @@ Mes outils :
 - https://api.zopim.com/web-sdk/
 
     Exemple d'application par Zendesk : 
-- https://github.com/zendesk/zopim-chat-web-sdk-sample-app ( pas<em> encore </em>réussi a la faire tourner )
+- https://github.com/zendesk/zopim-chat-web-sdk-sample-app 
 
 Jour 1 : 
 - Création de l'app React : create-react-app
@@ -30,7 +30,6 @@ Jour 2 :
 - Definition des events et processus 
 - Mise en place de mon nouvel écran ( 24 pouces vertical <3 )
 - Création de l'input de la bulle
-<<<<<<< HEAD
 - Test HTML et CSS 
 - A demain
 
@@ -43,3 +42,35 @@ Jour 3 :
 
 photo souvenir !
 
+Jour 4 : 
+
+- Ajout de classes CSS pour afficher les logs du chat et améliorer l'UX
+- Maquetage de la zone de saisie utilisateur par mon camarade Hadrien 
+- Ajout des composants manquant au fonctionnement du chat dans l'arborescence
+- Premiers rendus React
+- A demain
+
+Jour 5 - 6 :
+
+- Affichage correct des messages (utilisateur, agent et log)
+
+
+Jour 7 : 
+- Fin de la version 1 :
+
+    Features :
+    - Envoi d'un message et affichage dans le chat
+    - Reception d'un message et affichage dans le chat
+    - Maintient des messages dans le frontend
+    - Signalisation de l'état des deux participants (est en train d'écrire ou non)
+    - Event au click pour vider l'input
+
+    Tout est fonctionnel et débuggé mais il persiste un peu de travail sur la CSS.
+
+Prochaine version :
+- Style du footer de la fenêtre 
+- Ajout d'animation de la fenêtre ( gerer les 3 états : initial ouvert réduit)
+- Gestion plus efficace des données dont j'ai besoin devant (recherches sur Redux ...)
+
+
+    
