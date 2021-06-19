@@ -1,5 +1,6 @@
 import React from "react";
 import zChat from "../../vendors/web-sdk";
+import paperPlane from "../../img/2.png";
 
 export class InputText extends React.Component {
   constructor(props) {
@@ -13,11 +14,11 @@ export class InputText extends React.Component {
 
   handleChange(e) {
     this.setState({ value: e.target.value });
-    zChat.sendTyping(true)
+    zChat.sendTyping(true);
   }
 
   handleSubmit(e) {
-    if(document.querySelector(".inputText").value.trim() === '') return
+    if (document.querySelector(".inputText").value.trim() === "") return;
 
     const message = document.querySelector(".inputText").value;
 
@@ -28,32 +29,31 @@ export class InputText extends React.Component {
     });
 
     const storedMessage = {
-      nick : 'visitor',
-      msg : message
-    }
+      nick: "visitor",
+      msg: message,
+    };
 
-    e.preventDefault()
-    this.props.handleUserMsg(storedMessage)
+    e.preventDefault();
+    this.props.handleUserMsg(storedMessage);
     this.setState({ value: "" });
-    zChat.sendTyping(false)
+    zChat.sendTyping(false);
   }
-  handleKeyPress(e){
-    
-    if(e.key === 'Enter'){
-      this.handleSubmit(e)
+  handleKeyPress(e) {
+    if (e.key === "Enter") {
+      this.handleSubmit(e);
     }
   }
 
   handleCLick(e) {
-    e.target.value=''
-    e.target.value.trim()
+    e.target.value = "";
+    e.target.value.trim();
     e.preventDefault();
   }
 
   render() {
     return (
       <footer>
-        <form>
+        <div className="textAreaBox">
           <textarea
             className="inputText"
             type="text"
@@ -62,8 +62,10 @@ export class InputText extends React.Component {
             onClick={this.handleCLick}
             onKeyDown={this.handleKeyPress}
           />
-          <button type="button"  onClick={this.handleSubmit}>Send</button>
-        </form>
+        </div>
+        <div className="paperPlaneBox" onClick={this.handleSubmit}>
+          <img className="paperPlane" src={paperPlane} />
+        </div>
       </footer>
     );
   }

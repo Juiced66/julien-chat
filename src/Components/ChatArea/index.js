@@ -7,6 +7,13 @@ import zChat from "../../vendors/web-sdk";
 import InputText from "../InputText";
 
 let messages = [];
+let zChatInit = false;
+if (zChatInit === false) {
+  zChat.init({
+    account_key: "wug0jwSbeWxiSqkZMOkhTGFCy9CYHbBH",
+  });
+  zChatInit = true;
+}
 
 export class ChatArea extends React.Component {
   constructor(props) {
@@ -42,6 +49,7 @@ export class ChatArea extends React.Component {
             }
           }
           break;
+ 
         case "typing":
           if (event_data.typing === true) {
             document.querySelector(".isTypingBox").classList.remove("hidden");
@@ -60,7 +68,6 @@ export class ChatArea extends React.Component {
     this.setState({ toggle: !this.toggle });
   }
   handleIsTyping(e) {
-    console.log("entrée is typing", e);
     this.setState({ typing: e.typing });
     if (e.typing === true) {
       document.querySelector(".isTypingBox").classList.remove("hidden");
@@ -73,7 +80,6 @@ export class ChatArea extends React.Component {
   }
 
   render() {
-    console.log(messages);
     let toRender = messages.map((message, i) => {
       console.log(message);
       if (message.nick === "visitor") {
@@ -90,6 +96,15 @@ export class ChatArea extends React.Component {
         return (
           <LogMessage
             msg={message.display_name + " a rejoint le chat"}
+            key={i}
+          />
+        );
+      }
+
+      if (message.type === "chat.queue_position") {
+        return (
+          <LogMessage
+            msg={"Position dans la queue : " + message.queue_position}
             key={i}
           />
         );
