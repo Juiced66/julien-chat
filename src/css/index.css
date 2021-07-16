@@ -105,10 +105,10 @@ header > span:nth-child(3) {
   background-color: rgba(99, 93, 93, 0.85);
   display: flex;
   flex-direction: column;
-  height: 356px;
+  height: 390px;
   justify-content: flex-start;
-  flex-wrap: auto; /* régle le pb de scroll */
-  overflow-y: scroll;
+  /* flex-wrap: auto; régle le pb de scroll */
+  overflow-y: auto;
 }
 .chatArea::-webkit-scrollbar {
   width: 7px;
@@ -259,8 +259,7 @@ footer {
   position: absolute;
 }
 
-
-.idleStatus{
+.idleStatus {
   background: violet;
   border-radius: 50%;
   position: absolute;

@@ -21,7 +21,7 @@ export class IdleStatus extends Component {
     render() {
         return (
             <div onClick={this.handleClick} >
-                <img onClick={this.handleClick} className='idleStatus' src={closed} alt="" />
+                <img onClick={this.handleClick} className='idleStatus' src={closed} alt="Bulle de chat fermée" />
             </div>
         )
     }

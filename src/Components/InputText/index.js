@@ -34,10 +34,13 @@ export class InputText extends React.Component {
     };
 
     e.preventDefault();
+
     this.props.handleUserMsg(storedMessage);
     this.setState({ value: "" });
+
     zChat.sendTyping(false);
   }
+  
   handleKeyPress(e) {
     if (e.key === "Enter") {
       this.handleSubmit(e);
@@ -64,7 +67,7 @@ export class InputText extends React.Component {
           />
         </div>
         <div className="paperPlaneBox" onClick={this.handleSubmit}>
-          <img className="paperPlane" src={paperPlane} />
+          <img className="paperPlane" src={paperPlane} alt="envoyer"/>
         </div>
       </footer>
     );

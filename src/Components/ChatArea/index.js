@@ -64,6 +64,7 @@ export class ChatArea extends React.Component {
           break;
       }
     });
+    
   }
 
   handleAPIChat(e) {
@@ -79,15 +80,20 @@ export class ChatArea extends React.Component {
   }
 
   handleUserMsg(e) {
-    this.setState({ toggle: !this.toggle });
     messages.push(e);
+    this.setState({ toggle: !this.toggle });
+  }
+  
+  handleScrollDown(){
+      document.querySelector('.chatArea').scrollTo(0, document.querySelector('.chatArea').scrollHeight)
   }
 
-  handleScrollDown(){
-    
+  componentDidUpdate(){
+    this.handleScrollDown();
   }
 
   render() {
+    console.log('render')
     let toRender = messages.map((message, i) => {
       console.log(message);
       if (message.nick === "visitor") {
@@ -120,11 +126,14 @@ export class ChatArea extends React.Component {
 
       return null;
     });
+    
     return (
       <React.Fragment>
         <div className="chatArea">
           <TypingNotificator />
-          {[...toRender]}
+          {
+          [...toRender]
+          }
         </div>
         <InputText handleUserMsg={this.handleUserMsg.bind(this)} />
       </React.Fragment>
