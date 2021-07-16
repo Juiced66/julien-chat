@@ -12,7 +12,8 @@ export class CloseButton extends React.Component {
   
   handleClick() {
 
-    document.querySelector(".app").classList.add("closed");
+    document.querySelector(".app").classList.add("hidden");
+    document.querySelector(".idleStatus").classList.remove('hidden')
 
   }
 
@@ -23,7 +24,7 @@ export class CloseButton extends React.Component {
        <span onClick={this.handleClick}>
            ❌
        </span>
-       
+
     );
 
   }
