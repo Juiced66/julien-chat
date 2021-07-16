@@ -7,10 +7,13 @@ import zChat from "../../vendors/web-sdk";
 import InputText from "../InputText";
 
 let messages = [];
+
+
 let zChatInit = false;
+
 if (zChatInit === false) {
   zChat.init({
-    account_key: "wug0jwSbeWxiSqkZMOkhTGFCy9CYHbBH",
+    account_key: "6VQSBImUV0koHDgxqqVaaEbSKiQl0tPF",
   });
   zChatInit = true;
 }
@@ -30,7 +33,7 @@ export class ChatArea extends React.Component {
     window.helloComponent = this;
 
     zChat.on("chat", function (event_data) {
-      console.log(event_data);
+      //console.log(event_data);
       switch (event_data.type) {
         case "chat.msg":
           if (
@@ -67,6 +70,7 @@ export class ChatArea extends React.Component {
     messages.push(e);
     this.setState({ toggle: !this.toggle });
   }
+
   handleIsTyping(e) {
     this.setState({ typing: e.typing });
     if (e.typing === true) {
@@ -77,6 +81,10 @@ export class ChatArea extends React.Component {
   handleUserMsg(e) {
     this.setState({ toggle: !this.toggle });
     messages.push(e);
+  }
+
+  handleScrollDown(){
+    
   }
 
   render() {

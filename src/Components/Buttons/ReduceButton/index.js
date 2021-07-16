@@ -1,12 +1,25 @@
 import React from "react";
 
 export class ReduceButton extends React.Component {
+
+  constructor(props) {
+
+    super(props);
+
+    this.handleClick.bind(this);
+
+  }
+  
+  handleClick() {
+
+    document.querySelector(".app").classList.add("reduced");
+
+  }
+
   render() {
-    return (
-       <span>
-           ─
-       </span>
-    );
+
+    return <span className='btn' onClick={this.handleClick}>─</span>;
+
   }
 }
 

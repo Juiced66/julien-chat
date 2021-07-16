@@ -1,6 +1,5 @@
 /* Global app styles */
 body {
-    
   background: url(../img/plus-beau-que-blanc.jpg) border-box;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -9,10 +8,10 @@ body {
   position: relative;
   height: 100vh;
 }
-#root{
+#root {
   align-content: center;
   position: absolute;
-  bottom:3%;
+  bottom: 3%;
   height: 500px;
   justify-content: center;
   right: 3%;
@@ -33,10 +32,18 @@ body {
   display: flex;
   flex-direction: column;
   width: 350px;
-  /* état intermédiaire */
-  /* transform: translateY(-64px);  */
   /*Etat Ouvert */
   /* transform: translateY(-500px); */
+}
+
+.closed {
+  /*Pour masquer la fenetre a l'état initial*/
+  margin-top: 500px;
+}
+
+.reduced {
+  /* état intermédiaire */
+  margin-top: 435px;
 }
 .hidden {
   display: none !important;
@@ -85,10 +92,10 @@ header > span:first-child {
 span {
   margin-right: 15px;
   margin-top: 10px;
+  display: block;
 }
-header > span:nth-child(3)
-{
-margin-right: 0;
+header > span:nth-child(3) {
+  margin-right: 0;
 }
 
 /* Chat area styles*/
@@ -164,7 +171,7 @@ margin-right: 0;
   line-height: 18px;
   font-size: 16px;
   margin-right: 10px;
-  margin-top:22px;
+  margin-top: 22px;
   padding: 18px;
   position: relative;
   text-align: right;
@@ -206,9 +213,8 @@ footer {
   align-items: center;
   border: 2px solid black;
   position: relative;
-  
 }
-.textAreaBox{
+.textAreaBox {
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.95) 0px 7px 15px;
   border-radius: 8px 8px 15px 15px;
@@ -218,45 +224,37 @@ footer {
   position: relative;
   margin-top: 7px;
   margin-left: 8px;
-  
 }
 .inputText {
   background-color: #fff;
   font-size: 16px;
   border: none;
-  top:7%;
+  top: 7%;
   border-radius: 8px 8px 15px 15px;
   width: 80%;
   height: 80%;
-  resize:none;
+  resize: none;
   margin-left: 5px;
   position: absolute;
   outline: none;
-
 }
-.paperPlaneBox{
+.paperPlaneBox {
   right: 4%;
   box-shadow: rgba(0, 0, 0, 0.95) 0px 7px 15px;
-  top:18%;
+  top: 18%;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 2px solid black;
   background-color: #c0c0c0;
   position: absolute;
-  
-  
 }
-.paperPlaneBox:hover{
+.paperPlaneBox:hover {
   transform: scaleX(1.1) scaleY(1.1);
 }
-.paperPlane{
-  
+.paperPlane {
   width: 33px;
   right: 13%;
   top: 13%;
   position: absolute;
-  
-  
 }
-
