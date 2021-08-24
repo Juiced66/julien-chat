@@ -10,7 +10,6 @@ export class UserMessage extends React.Component {
     }
   
     render() {
-        console.log(this.state.msg)
     return (
         <div className="msgUser">
             <div className="label">{this.state.name}</div>
