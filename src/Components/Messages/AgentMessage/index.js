@@ -1,6 +1,6 @@
 import React from "react";
 
-export class AgentMessage extends React.Component {
+class AgentMessage extends React.Component {
     constructor(props){
         super(props)
         this.state = {

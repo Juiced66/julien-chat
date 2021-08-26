@@ -1,6 +1,6 @@
 import React from "react";
 
-export class ReduceButton extends React.Component {
+class ReduceButton extends React.Component {
 
   constructor(props) {
 

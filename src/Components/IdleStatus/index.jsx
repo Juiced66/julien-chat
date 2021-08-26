@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import closed from '../../img/closed.png'
 
-export class IdleStatus extends Component {
+class IdleStatus extends Component {
 
     constructor(props) {
 

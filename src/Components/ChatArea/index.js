@@ -5,132 +5,97 @@ import AgentMessage from "../Messages/AgentMessage";
 import LogMessage from "../Messages/LogMessage";
 import zChat from "../../vendors/web-sdk";
 import InputText from "../InputText";
+import {
+  receiveAgentMessage,
+  registerLog,
+  registerInformation,
+} from "../../features/messages/messagesSlice";
+import { connect } from "react-redux";
 
-let messages = [];
+class ChatArea extends React.Component {
 
-export class ChatArea extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      toggle: false,
-    };
-
-    this.handleIsTyping = this.handleIsTyping.bind(this);
-    this.handleAPIChat = this.handleAPIChat.bind(this);
-    this.handleUserMsg = this.handleUserMsg.bind(this);
-
-    window.globalStorage = this;
-    
-    zChat.on("chat", function (event_data) {
+  componentDidMount() {
+    zChat.on("chat", (event_data) => {
       console.log(event_data);
       switch (event_data.type) {
         case "chat.msg":
-          if (
-            event_data.timestamp !== messages[messages.length - 1].timestamp
-          ) {
-            window.globalStorage.handleAPIChat(event_data);
-          }
+          this.props.receiveAgentMessage({
+            name: event_data.display_name,
+            timestamp: event_data.timestamp,
+            value: event_data.msg,
+            messageType: "agent",
+          });
           break;
+        case "chat.queue_position":
+          if (event_data.queue_position !== 0)
+            this.props.registerLog({
+              name: event_data.display_name,
+              timestamp: Date.now(),
+              value: "Position dans la queue : " + event_data.queue_position,
+              messageType: "log",
+            });
+          break;
+        
         case "chat.memberjoin":
-          if (
-            event_data.timestamp !== messages[messages.length - 1].timestamp
-          ) {
-            let regex = /^agent/i;
-            if (regex.test(event_data.nick)) {
-              window.globalStorage.handleAPIChat(event_data);
-            }
-           }
-          break;
-        case "chat.queue_position" :
-          window.globalStorage.handleAPIChat(event_data);
+          const regex = /^agent/i;
+          if (regex.test(event_data.nick)) {
+            this.props.registerLog({
+              name: event_data.display_name,
+              timestamp: event_data.timestamp,
+              value: event_data.display_name + " a rejoint le chat",
+              messageType: "log",
+            });
+          }
           break;
         case "typing":
-          if (event_data.typing === true) {
+          if (event_data.typing === true)
             document.querySelector(".isTypingBox").classList.remove("hidden");
-          } else if (event_data.typing === false) {
-            document.querySelector(".isTypingBox").classList.add("hidden");
-          }
+          else document.querySelector(".isTypingBox").classList.add("hidden");
           break;
         default:
+          console.log("err");
           break;
       }
     });
-    
   }
 
-
-  handleAPIChat(e) {
-    messages.push(e);
-    this.setState({ toggle: !this.toggle });
-  }
-
-  handleIsTyping(e) {
+  handleIsTyping = (e) => {
     this.setState({ typing: e.typing });
-    if (e.typing === true) 
+    if (e.typing === true)
       document.querySelector(".isTypingBox").classList.remove("hidden");
-    else 
-      document.querySelector(".isTypingBox").classList.add("hidden");
+    else document.querySelector(".isTypingBox").classList.add("hidden");
+  };
+
+  handleScrollDown() {
+    document
+      .querySelector(".chatArea")
+      .scrollTo(0, document.querySelector(".chatArea").scrollHeight);
   }
 
-  handleUserMsg(e) {
-    messages.push(e);
-    this.setState({ toggle: !this.toggle });
-  }
-  
-  handleScrollDown(){
-      document.querySelector('.chatArea').scrollTo(0, document.querySelector('.chatArea').scrollHeight)
-  }
-
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.handleScrollDown();
   }
 
   render() {
-    console.log('render')
-    let toRender = messages.map((message, i) => {
-      if (message.nick === "visitor") {
-        console.log(message.msg);
-        return <UserMessage msg={message.msg} name="visiteur" key={i} />;
-      }
-      let regex = /^agent/i;
-      if (regex.test(message.nick) && message.type === "chat.msg") {
-        return (
-          <AgentMessage msg={message.msg} name={message.display_name} key={i} />
-        );
-      }
-      if (message.type === "chat.memberjoin" ) {
-        return (
-          <LogMessage
-            msg={message.display_name + " a rejoint le chat"}
-            key={i}
-          />
-        );
-      }
+    const messages = this.props.messages;
 
-      if (message.type === "chat.queue_position" && messages[i-1].queue_position !== message.queue_position && message.queue_position !== 0) {
-        return (
-          <LogMessage
-            msg={"Position dans la queue : " + message.queue_position}
-            key={i}
-          />
-        );
-        }
-      return null;
-    });
-    
     return (
       <React.Fragment>
         <div className="chatArea">
           <TypingNotificator />
-          {
-          [...toRender]
-          }
         </div>
-        <InputText handleUserMsg={this.handleUserMsg.bind(this)} />
+        <InputText />
       </React.Fragment>
     );
   }
 }
 
-export default ChatArea;
+const mapStateToProps = (state) => ({
+  messages: state.messages.messages,
+});
+
+export default connect(mapStateToProps, {
+  receiveAgentMessage,
+  registerLog,
+  registerInformation,
+})(ChatArea);

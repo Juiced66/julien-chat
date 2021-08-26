@@ -1,6 +1,6 @@
 /* Global app styles */
 body {
-  background: url(../img/plus-beau-que-blanc.jpg) border-box;
+  background: url(./img/plus-beau-que-blanc.jpg) border-box;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   margin: 0;
@@ -61,7 +61,7 @@ header {
   width: 100%;
 }
 .agentPic {
-  background: url(../img/avatar.jpg) 45% 45% border-box;
+  background: url(./img/avatar.jpg) 45% 45% border-box;
   background-size: 50px;
   border: 1px solid black;
   border-radius: 50%;
@@ -206,7 +206,7 @@ header > span:nth-child(3) {
 /* Footer styles*/
 footer {
   background-color: #c0c0c0;
-  height: 70px;
+  height: 85px;
   width: 99%;
   bottom: 0px;
   justify-content: space-around;

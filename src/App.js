@@ -1,10 +1,11 @@
+import './App.css';
 import React, {Component} from "react";
-import Header from "../Header";
-import ChatArea from "../ChatArea";
-import IdleStatus from "../IdleStatus";
-import zChat from "../../vendors/web-sdk";
+import Header from "./Components/Header";
+import ChatArea from "./Components/ChatArea";
+import IdleStatus from "./Components/IdleStatus";
+import zChat from "./vendors/web-sdk";
 
-export class App extends Component {
+class App extends Component {
 
   componentDidMount(){
     zChat.init({

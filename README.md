@@ -1,76 +1,44 @@
-julien-chat 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-Tentatives d'un aspirant développeur d'intégrer une bulle de chat connectée a Zendesk Chat. 
- 
-Temps estimé : /* advienne que pourra */
+## Available Scripts
 
-Mes outils : 
-    React - css /* more incoming later */
+In the project directory, you can run:
 
- ressources : 
-    SDK web Zendesk : 
-- https://api.zopim.com/web-sdk/
+### `npm start`
 
-    Exemple d'application par Zendesk : 
-- https://github.com/zendesk/zopim-chat-web-sdk-sample-app 
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Jour 1 : 
-- Création de l'app React : create-react-app
-- Nettoyage du projet
-- Choix d'un arrière plan
-- Constatation d'un besoin d'écran supplémentaire
-- Panne d'électricité
-- Mise en forme plus approfondis du projet de base
-- A demain
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-Jour 2 : 
+### `npm test`
 
-- Maquetage à la main (promis, je garde tout !)
-- Definition de tous les éléments UI de la version 1
-- Definition des events et processus 
-- Mise en place de mon nouvel écran ( 24 pouces vertical <3 )
-- Création de l'input de la bulle
-- Test HTML et CSS 
-- A demain
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Jour 3 : 
+### `npm run build`
 
-- Fin des tests HTML/CSS (je dois encore refactoriser les messages).
-- A demain
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-![jour3](/uploads/f277dfcd085bab2e8977936c6061ba88/jour3.png)
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-photo souvenir !
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Jour 4 : 
+### `npm run eject`
 
-- Ajout de classes CSS pour afficher les logs du chat et améliorer l'UX
-- Maquetage de la zone de saisie utilisateur par mon camarade Hadrien 
-- Ajout des composants manquant au fonctionnement du chat dans l'arborescence
-- Premiers rendus React
-- A demain
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Jour 5 - 6 :
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Affichage correct des messages (utilisateur, agent et log)
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Jour 7 : 
-- Fin de la version 1 :
+## Learn More
 
-    Features :
-    - Envoi d'un message et affichage dans le chat
-    - Reception d'un message et affichage dans le chat
-    - Maintient des messages dans le frontend
-    - Signalisation de l'état des deux participants (est en train d'écrire ou non)
-    - Event au click pour vider l'input
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-    Tout est fonctionnel et débuggé mais il persiste un peu de travail sur la CSS.
-
-Prochaine version :
-- Style du footer de la fenêtre 
-- Ajout d'animation de la fenêtre ( gerer les 3 états : initial ouvert réduit)
-- Gestion plus efficace des données dont j'ai besoin devant (recherches sur Redux ...)
-
-
-    
+To learn React, check out the [React documentation](https://reactjs.org/).

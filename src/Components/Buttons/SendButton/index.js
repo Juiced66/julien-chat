@@ -1,7 +1,5 @@
-//TODO : Composants bouton envoi 
 import React from "react";
-
-export class SendButton extends React.Component {
+class SendButton extends React.Component {
   
   handleClick(e){
 

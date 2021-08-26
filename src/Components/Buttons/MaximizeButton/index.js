@@ -1,7 +1,7 @@
 import React from "react";
 // import MaximizeBtn from '../../../icons/maximizeBtn.svg'
 
-export class ReduceButton extends React.Component {
+class ReduceButton extends React.Component {
   render() {
     return (
       <span className="hidden">

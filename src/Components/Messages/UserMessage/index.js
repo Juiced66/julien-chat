@@ -1,6 +1,6 @@
 import React from "react";
 
-export class UserMessage extends React.Component {
+class UserMessage extends React.Component {
     constructor(props){
         super(props)
         this.state = {

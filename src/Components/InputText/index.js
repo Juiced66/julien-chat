@@ -1,8 +1,12 @@
 import React from "react";
 import zChat from "../../vendors/web-sdk";
 import paperPlane from "../../img/2.png";
+import {
+  sendVisitorMessage
+} from "../../features/messages/messagesSlice";
+import { connect } from "react-redux";
 
-export class InputText extends React.Component {
+class InputText extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "Saisissez votre message" };
@@ -22,25 +26,27 @@ export class InputText extends React.Component {
 
     const message = document.querySelector(".inputText").value;
 
+    this.props.sendVisitorMessage({
+      name : "Visiteur",
+      timestamp : Date.now(),
+      value : message,
+      messageType : "Visitor"
+    })
+
     zChat.sendChatMsg(message, function (err) {
       if (err) {
         console.log(err);
       }
     });
 
-    const storedMessage = {
-      nick: "visitor",
-      msg: message,
-    };
 
     e.preventDefault();
 
-    this.props.handleUserMsg(storedMessage);
     this.setState({ value: "" });
 
     zChat.sendTyping(false);
   }
-  
+
   handleKeyPress(e) {
     if (e.key === "Enter") {
       this.handleSubmit(e);
@@ -67,11 +73,15 @@ export class InputText extends React.Component {
           />
         </div>
         <div className="paperPlaneBox" onClick={this.handleSubmit}>
-          <img className="paperPlane" src={paperPlane} alt="envoyer"/>
+          <img className="paperPlane" src={paperPlane} alt="envoyer" />
         </div>
       </footer>
     );
   }
 }
-
-export default InputText;
+const mapStateToProps = (state) => ({
+  messages: state.messages.messages,
+});
+export default connect(mapStateToProps, {
+ sendVisitorMessage
+})(InputText);
