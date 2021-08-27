@@ -8,7 +8,7 @@ class CloseButton extends React.Component {
   handleClick = () => {
     document.querySelector(".app").classList.add("hidden");
     document.querySelector(".idleStatus").classList.remove("hidden");
-    zChat.endChat()
+    zChat.endChat();
     this.props.clearMessages();
     
   }

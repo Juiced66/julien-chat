@@ -1,6 +1,5 @@
 import React from "react";
 import ReduceButton from '../Buttons/ReduceButton'
-import MaximizeButton from '../Buttons/MaximizeButton'
 import CloseButton from '../Buttons/CloseButton'
 
 class Header extends React.Component {
@@ -25,11 +24,12 @@ class Header extends React.Component {
   render() {
     return (
       <header onClick={this.handleClick}>
-        <div className="agentPic"></div>
+        <div className="agentPic1"></div>
+        <div className="agentPic2"></div>
+        <div className="agentPic3"></div>
         <div className="agentName">
-          Wilson <em>@Subaru_staff</em>
+          Subaru Connect'
         </div>
-        <MaximizeButton />
         <ReduceButton />
         <CloseButton />
       </header>

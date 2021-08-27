@@ -2,16 +2,8 @@ import React, { Component } from 'react'
 import closed from '../../img/closed.png'
 
 class IdleStatus extends Component {
-
-    constructor(props) {
-
-        super(props);
-    
-        this.handleClick.bind(this);
-        
-      }
-      
-      handleClick() {
+  
+    handleClick = () => {
     
         document.querySelector(".app").classList.remove("hidden");
         document.querySelector(".idleStatus").classList.add('hidden')

@@ -15,6 +15,8 @@ import { connect } from "react-redux";
 class ChatArea extends React.Component {
   componentDidMount() {
     zChat.on("chat", (event_data) => {
+      console.log(event_data)
+      const regex = /^agent/i;
       switch (event_data.type) {
         case "chat.msg":
           this.props.receiveAgentMessage({
@@ -24,6 +26,7 @@ class ChatArea extends React.Component {
             messageType: "agent",
           });
           break;
+        
         case "chat.queue_position":
           if (event_data.queue_position !== 0)
             this.props.registerLog({
@@ -35,16 +38,23 @@ class ChatArea extends React.Component {
           break;
 
         case "chat.memberjoin":
-          const regex = /^agent/i;
-          if (regex.test(event_data.nick)) {
+          if (regex.test(event_data.nick)) 
             this.props.registerLog({
               name: event_data.display_name,
               timestamp: event_data.timestamp,
               value: event_data.display_name + " a rejoint le chat",
               messageType: "memberjoin",
             });
-          }
+          
           break;
+          case "chat.memberleave":
+            if (regex.test(event_data.nick)) 
+              this.props.registerLog({
+                value: event_data.display_name + " a quitté le chat",
+                messageType: "memberleave",
+              });
+            
+            break;
         case "typing":
           if (event_data.typing === true)
             document.querySelector(".isTypingBox").classList.remove("hidden");
@@ -85,11 +95,13 @@ class ChatArea extends React.Component {
         return (
           <AgentMessage
             msg={message.value}
-            name={message.display_name}
+            name={message.name}
             key={i}
           />
         );
       if (message.messageType === "memberjoin")
+        return <LogMessage msg={message.value} key={i} />;
+      if (message.messageType === "memberleave")
         return <LogMessage msg={message.value} key={i} />;
 
       return null;
