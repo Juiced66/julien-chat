@@ -27,9 +27,10 @@ export const messagesSlice = createSlice({
     registerInformation:(state,action) => {
       state.messages.push(action.payload);
     },
+    clearMessages : state => initialState
   },
 });
 
-export const { sendVisitorMessage, receiveAgentMessage, registerLog, registerInformation } = messagesSlice.actions;
+export const { sendVisitorMessage, receiveAgentMessage, registerLog, registerInformation, clearMessages } = messagesSlice.actions;
 
 export default messagesSlice.reducer;

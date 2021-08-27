@@ -14,9 +14,7 @@ import { connect } from "react-redux";
 
 class ChatArea extends React.Component {
   componentDidMount() {
-    console.log(this.state);
     zChat.on("chat", (event_data) => {
-      console.log(event_data);
       switch (event_data.type) {
         case "chat.msg":
           this.props.receiveAgentMessage({
@@ -53,7 +51,6 @@ class ChatArea extends React.Component {
           else document.querySelector(".isTypingBox").classList.add("hidden");
           break;
         default:
-          console.log("err");
           break;
       }
     });
@@ -77,16 +74,13 @@ class ChatArea extends React.Component {
   }
 
   render() {
-    console.log(this.props.messages);
     const renderedMessages = this.props.messages.map((message, i) => {
       if (message.messageType === "information")
       return <LogMessage msg={message.value} key={i} />;
       if (message.messageType === "queue")
         return <LogMessage msg={message.value} key={i} />;
-
       if (message.messageType === "visitor")
         return <UserMessage msg={message.value} name={message.name} key={i} />;
-
       if (message.messageType === "agent")
         return (
           <AgentMessage
@@ -95,13 +89,11 @@ class ChatArea extends React.Component {
             key={i}
           />
         );
-
       if (message.messageType === "memberjoin")
         return <LogMessage msg={message.value} key={i} />;
 
       return null;
     });
-    console.log(renderedMessages);
     return (
       <React.Fragment>
         <div className="chatArea">
