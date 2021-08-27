@@ -30,7 +30,7 @@ class InputText extends React.Component {
       name : "Visiteur",
       timestamp : Date.now(),
       value : message,
-      messageType : "Visitor"
+      messageType : "visitor"
     })
 
     zChat.sendChatMsg(message, function (err) {

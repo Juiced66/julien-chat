@@ -13,8 +13,8 @@ import {
 import { connect } from "react-redux";
 
 class ChatArea extends React.Component {
-
   componentDidMount() {
+    console.log(this.state);
     zChat.on("chat", (event_data) => {
       console.log(event_data);
       switch (event_data.type) {
@@ -32,10 +32,10 @@ class ChatArea extends React.Component {
               name: event_data.display_name,
               timestamp: Date.now(),
               value: "Position dans la queue : " + event_data.queue_position,
-              messageType: "log",
+              messageType: "queue",
             });
           break;
-        
+
         case "chat.memberjoin":
           const regex = /^agent/i;
           if (regex.test(event_data.nick)) {
@@ -43,7 +43,7 @@ class ChatArea extends React.Component {
               name: event_data.display_name,
               timestamp: event_data.timestamp,
               value: event_data.display_name + " a rejoint le chat",
-              messageType: "log",
+              messageType: "memberjoin",
             });
           }
           break;
@@ -77,11 +77,35 @@ class ChatArea extends React.Component {
   }
 
   render() {
-    const messages = this.props.messages;
+    console.log(this.props.messages);
+    const renderedMessages = this.props.messages.map((message, i) => {
+      if (message.messageType === "information")
+      return <LogMessage msg={message.value} key={i} />;
+      if (message.messageType === "queue")
+        return <LogMessage msg={message.value} key={i} />;
 
+      if (message.messageType === "visitor")
+        return <UserMessage msg={message.value} name={message.name} key={i} />;
+
+      if (message.messageType === "agent")
+        return (
+          <AgentMessage
+            msg={message.value}
+            name={message.display_name}
+            key={i}
+          />
+        );
+
+      if (message.messageType === "memberjoin")
+        return <LogMessage msg={message.value} key={i} />;
+
+      return null;
+    });
+    console.log(renderedMessages);
     return (
       <React.Fragment>
         <div className="chatArea">
+          {[...renderedMessages]}
           <TypingNotificator />
         </div>
         <InputText />
