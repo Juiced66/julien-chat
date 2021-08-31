@@ -30,6 +30,9 @@ export const messagesSlice = createSlice({
     registerInformation:(state,action) => {
       state.messages.push(action.payload);
     },
+    registerAgentFile : (state,action) => {
+      state.messages.push(action.payload);
+    },
     sendRating : (state, action) => {
       state.messages.push(action.payload);
     },
@@ -37,6 +40,15 @@ export const messagesSlice = createSlice({
   },
 });
 
-export const { sendVisitorMessage, sendVisitorFile, receiveAgentMessage, registerLog, registerInformation, clearMessages, sendRating } = messagesSlice.actions;
+export const { 
+  sendVisitorMessage,
+  sendVisitorFile,
+  receiveAgentMessage,
+  registerLog,
+  registerInformation,
+  registerAgentFile,
+  sendRating,
+  clearMessages,
+  } = messagesSlice.actions;
 
 export default messagesSlice.reducer;

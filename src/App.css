@@ -271,6 +271,17 @@ span {
   text-align: center;
 }
 
+.mini{
+  width: 40px;
+  height: auto;
+}
+
+.floatLeft{
+  margin-right: 8px;
+  float: left;
+}
+
+
 /* Footer styles*/
 
 footer {

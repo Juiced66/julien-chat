@@ -8,12 +8,13 @@ Npm start
 - Reset du chat et cloture de la connection Zendesk au click du bouton fermer.
 - Ajout d'une animation lumineuse du header et modification de style
 - Integration des envois de fichier (via le sdk).
+- Integration de la reception des fichiers .
 - Integration du rating du chat + commentaire (via le sdk).
 
 Reste à faire : 
 
 - Integration de l'authentification du visiteur (via le sdk).
-- Integration de bulles automatiques quand on envoie des liens youtube (un peu comme sur messenger).
+- Integration de bulles automatiques quand on envoie des liens youtube (un peu comme sur messenger).    
 - Meilleur état initial (animé?).
 
 
