@@ -10,7 +10,7 @@ class CloseButton extends React.Component {
     document.querySelector(".idleStatus").classList.remove("hidden");
     zChat.endChat();
     this.props.clearMessages();
-    
+    document.querySelector(".inputText").value = "Saisissez votre message"; 
   }
 
   render() {

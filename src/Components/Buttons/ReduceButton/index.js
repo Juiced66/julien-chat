@@ -1,16 +1,8 @@
 import React from "react";
 
 class ReduceButton extends React.Component {
-
-  constructor(props) {
-
-    super(props);
-
-    this.handleClick.bind(this);
-
-  }
   
-  handleClick() {
+  handleClick = () => {
 
     document.querySelector(".app").classList.add("reduced");
 

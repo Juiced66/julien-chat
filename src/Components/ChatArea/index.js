@@ -3,6 +3,7 @@ import TypingNotificator from "../TypingNotificator";
 import UserMessage from "../Messages/UserMessage";
 import AgentMessage from "../Messages/AgentMessage";
 import LogMessage from "../Messages/LogMessage";
+import InfoMessage from "../Messages/InfoMessage";
 import zChat from "../../vendors/web-sdk";
 import InputText from "../InputText";
 import {
@@ -26,7 +27,7 @@ class ChatArea extends React.Component {
             messageType: "agent",
           });
           break;
-        
+
         case "chat.queue_position":
           if (event_data.queue_position !== 0)
             this.props.registerLog({
@@ -38,23 +39,32 @@ class ChatArea extends React.Component {
           break;
 
         case "chat.memberjoin":
-          if (regex.test(event_data.nick)) 
+          if (regex.test(event_data.nick))
             this.props.registerLog({
               name: event_data.display_name,
               timestamp: event_data.timestamp,
               value: event_data.display_name + " a rejoint le chat",
               messageType: "memberjoin",
             });
-          
           break;
-          case "chat.memberleave":
-            if (regex.test(event_data.nick)) 
-              this.props.registerLog({
-                value: event_data.display_name + " a quitté le chat",
-                messageType: "memberleave",
-              });
-            
-            break;
+
+        case "chat.memberleave":
+          if (regex.test(event_data.nick))
+            this.props.registerLog({
+              name: event_data.display_name,
+              timestamp: event_data.timestamp,
+              value: event_data.display_name + " a quitté le chat",
+              messageType: "memberleave",
+            });
+          break;
+        case "chat.request.rating" :
+          this.props.registerInformation({
+            name: event_data.display_name,
+            timestamp: event_data.timestamp,
+            value: event_data.display_name + " à demandé de noter le chat \n",
+            messageType: "requestRating",
+          })
+          break;
         case "typing":
           if (event_data.typing === true)
             document.querySelector(".isTypingBox").classList.remove("hidden");
@@ -95,7 +105,7 @@ class ChatArea extends React.Component {
         return (
           <AgentMessage
             msg={message.value}
-            name={message.name}
+            name={message.name + " de Subaru connect'"}
             key={i}
           />
         );
@@ -103,7 +113,36 @@ class ChatArea extends React.Component {
         return <LogMessage msg={message.value} key={i} />;
       if (message.messageType === "memberleave")
         return <LogMessage msg={message.value} key={i} />;
-
+      if (message.messageType === "requestRating")
+        return (
+          <InfoMessage
+            msg={message.value}
+            name= "Information"
+            key={i}
+          />
+        );
+        if (message.messageType === "visitorFile")
+        return (
+          <InfoMessage
+            msg={message.value}
+            name= "Fichier envoyé"
+            key={i}
+          />
+        );
+        if (message.messageType === "positiveRate")
+        return (
+          <LogMessage
+            msg={message.value}
+            key={i}
+          />
+        );
+        if (message.messageType === "negativeRate")
+        return (
+          <LogMessage
+            msg={message.value}
+            key={i}
+          />
+        );  
       return null;
     });
     return (

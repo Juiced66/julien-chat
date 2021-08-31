@@ -1,7 +1,9 @@
 import React from "react";
 import zChat from "../../vendors/web-sdk";
 import paperPlane from "../../img/2.png";
+import fileSend from "../../img/fichier.png";
 import {
+  sendVisitorFile,
   sendVisitorMessage
 } from "../../features/messages/messagesSlice";
 import { connect } from "react-redux";
@@ -10,18 +12,14 @@ class InputText extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "Saisissez votre message" };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.handleCLick = this.handleCLick.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({ value: e.target.value });
     zChat.sendTyping(true);
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     if (document.querySelector(".inputText").value.trim() === "") return;
 
     const message = document.querySelector(".inputText").value;
@@ -39,7 +37,6 @@ class InputText extends React.Component {
       }
     });
 
-
     e.preventDefault();
 
     this.setState({ value: "" });
@@ -47,22 +44,41 @@ class InputText extends React.Component {
     zChat.sendTyping(false);
   }
 
-  handleKeyPress(e) {
+  handleKeyPress = (e) => {
     if (e.key === "Enter") {
       this.handleSubmit(e);
     }
   }
 
-  handleCLick(e) {
+  handleCLick = (e) => {
+    if(e.target.value === "Saisissez votre message")
     e.target.value = "";
     e.target.value.trim();
     e.preventDefault();
   }
 
+  handleFileSend = (file) => {
+ 
+    zChat.sendFile(file, (err, data) => { 
+      console.log(data);
+      console.log(err);
+      if(err === null)
+        this.props.sendVisitorFile({
+          name : "Visiteur",
+          timestamp : Date.now(),
+          value : "Vous avez envoyé le fichier " + data.name,
+          messageType : "visitorFile"
+        })
+      
+     });
+
+  }
+
   render() {
     return (
       <footer>
-        <div className="textAreaBox">
+
+        <div className="textAreaBox">        
           <textarea
             className="inputText"
             type="text"
@@ -75,6 +91,11 @@ class InputText extends React.Component {
         <div className="paperPlaneBox" onClick={this.handleSubmit}>
           <img className="paperPlane" src={paperPlane} alt="envoyer" />
         </div>
+        <div className="features" >
+          <label htmlFor="sendFile" title="Fichiers acceptés : .pdf .png .jpeg .txt"><img src={fileSend} alt='envoi de fichier'/></label>
+          <input className="sendFile" onChange={(e) => this.handleFileSend(e.target.files[0])} type="file" id="sendFile" name="sendFile" alt="fichier" />
+          <div className = "more">...</div>
+        </div>
       </footer>
     );
   }
@@ -83,5 +104,6 @@ const mapStateToProps = (state) => ({
   messages: state.messages.messages,
 });
 export default connect(mapStateToProps, {
- sendVisitorMessage
+ sendVisitorMessage,
+ sendVisitorFile
 })(InputText);

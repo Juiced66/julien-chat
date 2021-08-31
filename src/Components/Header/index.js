@@ -3,16 +3,8 @@ import ReduceButton from '../Buttons/ReduceButton'
 import CloseButton from '../Buttons/CloseButton'
 
 class Header extends React.Component {
-
-  constructor(props) {
-
-    super(props);
-
-    this.handleClick.bind(this);
-    
-  }
-
-  handleClick(e) {
+  
+  handleClick = (e) => {
 
     if (e.target.classList.contains('btn'))
     return

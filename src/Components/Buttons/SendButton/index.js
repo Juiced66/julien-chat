@@ -1,10 +1,6 @@
 import React from "react";
 class SendButton extends React.Component {
   
-  handleClick(e){
-
-  }
-  
   render() {
     return (
        
