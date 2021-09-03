@@ -24,6 +24,9 @@ export const messagesSlice = createSlice({
     receiveAgentMessage: (state,action) => {
       state.messages.push(action.payload);
     },
+    receiveYoutubeEmbed : (state,action) => {
+      state.messages.push(action.payload);
+    },
     registerLog: (state, action) => {
       state.messages.push(action.payload);
     },
@@ -44,6 +47,7 @@ export const {
   sendVisitorMessage,
   sendVisitorFile,
   receiveAgentMessage,
+  receiveYoutubeEmbed,
   registerLog,
   registerInformation,
   registerAgentFile,

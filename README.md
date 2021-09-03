@@ -10,11 +10,12 @@ Npm start
 - Integration des envois de fichier (via le sdk).
 - Integration de la reception des fichiers .
 - Integration du rating du chat + commentaire (via le sdk).
+- Integration de bulles automatiques quand on envoie des liens youtube (un peu comme sur messenger).    
 
 Reste à faire : 
 
+- Integration de l'envoi de l'historique de chat par mail (via le sdk).
 - Integration de l'authentification du visiteur (via le sdk).
-- Integration de bulles automatiques quand on envoie des liens youtube (un peu comme sur messenger).    
 - Meilleur état initial (animé?).
 
 
