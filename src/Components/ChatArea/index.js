@@ -10,11 +10,13 @@ import zChat from "../../vendors/web-sdk";
 import InputText from "../InputText";
 import {
   receiveAgentMessage,
+  receiveYoutubeEmbed,
   registerLog,
   registerInformation,
   registerAgentFile,
 } from "../../features/messages/messagesSlice";
 import { connect } from "react-redux";
+import AgentYoutubeOembedMessage from "../Messages/AgentYoutubeOembedMessage";
 
 class ChatArea extends React.Component {
   componentDidMount() {
@@ -23,19 +25,40 @@ class ChatArea extends React.Component {
       const regex = /^agent/i;
       switch (event_data.type) {
         case "chat.msg":
-          this.props.receiveAgentMessage({
-            name: event_data.display_name,
-            timestamp: event_data.timestamp,
-            value: event_data.msg,
-            messageType: "agent",
-          });
+          const youtubeRegex = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w]+\?v=|embed\/|v\/)?)([\w]+)(\S+)?$/
+          if(youtubeRegex.test(event_data.msg)){
+            fetch('https://www.youtube.com/oembed?url=' + event_data.msg)
+            .then(res =>res.json())
+            .then(result => this.props.receiveYoutubeEmbed({
+                name: event_data.display_name,
+                timestamp : event_data.timestamp,
+                videoUrl : event_data.msg,
+                title : result.title,
+                author : result.author_name,
+                authorUrl : result.author_url,
+                thumbnailUrl: result.thumbnail_url,
+                thumbnailWidth : result.thumbnail_width,
+                thumbnailHeight : result.thumbnail_height,
+                providerName : result.provider_name,
+                messageType : "agentYoutubeEmbed",
+              })             
+            );
+        
+           }else{
+            this.props.receiveAgentMessage({
+              name: event_data.display_name,
+              timestamp: event_data.timestamp,
+              value: event_data.msg,
+              messageType: "agent",
+            });
+          }
           break;
 
         case "chat.queue_position":
           if (event_data.queue_position !== 0)
             this.props.registerLog({
               name: event_data.display_name,
-              timestamp: Date.now(),
+              timestamp : event_data.timestamp,
               value: "Position dans la queue : " + event_data.queue_position,
               messageType: "queue",
             });
@@ -126,6 +149,18 @@ class ChatArea extends React.Component {
             key={i}
           />
         );
+      if(message.messageType === "agentYoutubeEmbed")
+          return <AgentYoutubeOembedMessage 
+            name={message.name}
+            videoUrl={message.videoUrl}
+            title={message.title}
+            author={message.author}
+            authorUrl={message.authorUrl}
+            thumbnailUrl={message.thumbnailUrl}
+            thumbnailHeight={message.thumbnailHeight}
+            thumbnailWidth={message.thumbnailWidth}
+            key ={i}
+            />
       if (message.messageType === "memberjoin")
         return <LogMessage msg={message.value} key={i} />;
       if (message.messageType === "memberleave")
@@ -145,11 +180,11 @@ class ChatArea extends React.Component {
         const regexPdf = /.pdf$/i;
         const regexTxt = /.txt$/i;
         const regexPng = /.png$/i;
+        const regexGif = /.gif$/i;
         const regexJpeg = /.jpeg$/i;
         const regexJpg = /.jpg$/i;
-       console.log(regexJpg.test(message.fileName)); 
-        if(regexPdf.test(message.fileName) || regexTxt.test(message.fileName)){
-          console.log('readable');
+        if(regexPdf.test(message.fileName) ||
+          regexTxt.test(message.fileName)){
           return <AgentReadableFile 
             msg = {message.value}
             name = {message.name}
@@ -158,9 +193,10 @@ class ChatArea extends React.Component {
             key={i}
             />
         }
-        else if (regexPng.test(message.fileName) || regexJpeg.test(message.fileName) || regexJpg.test(message.fileName)){
-
-          console.log('img');
+        else if (regexGif.test(message.fileName) ||
+         regexPng.test(message.fileName) ||
+         regexJpeg.test(message.fileName) ||
+         regexJpg.test(message.fileName)){
           return <AgentFileImg 
             msg = {message.value}
             name = {message.name}
@@ -191,6 +227,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   receiveAgentMessage,
+  receiveYoutubeEmbed,
   registerLog,
   registerInformation,
   registerAgentFile,

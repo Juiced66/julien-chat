@@ -9,9 +9,8 @@ class AgentMessage extends React.Component {
         }
         
     }
-  
     render() {
-    return (
+return (
         <div className="msgAgent">
             <div className="label">{this.state.name}</div>
             {this.state.msg}

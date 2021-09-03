@@ -9,7 +9,10 @@ body {
   position: relative;
   height: 100vh;
 }
-
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
 #root {
   align-content: center;
   position: absolute;
@@ -193,7 +196,21 @@ span {
 .msgUser>.label {
   right: 10px;
 }
+.title{
+  border-bottom: 1px solid black;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  width: 100%;
+}
 
+.imgBox > img{
+    width: calc(480px/2);
+    height: calc(360px /2);
+}
+.linkBox{
+  text-decoration: underline;
+  font-style: italic;
+}
 .isTypingBox {
     /* align-items: center; */
     background-color: rgba(255, 255, 255, 0.8);
