@@ -1,0 +1,70 @@
+.emailModale{
+    position: absolute;
+    bottom:10px;
+    width: 350px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.text{
+    font-size: 1.4em;
+    margin-bottom: 30px;
+}
+#emailModale > .label {
+    position: absolute;
+    top: -1em;
+    font-size: 12px;
+   
+}
+#emailModale{
+    position: relative; 
+    margin-bottom: 10px;
+}
+.submit{
+    color: #fff;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    font-size: 1rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+.submit:active{
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+.submit:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4848d6ab;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+.submit:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #2929ac;
+  transition: all .3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.submit:hover:before{
+    width:100%;
+}

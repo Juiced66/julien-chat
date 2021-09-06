@@ -4,6 +4,7 @@ import Header from "./Components/Header";
 import ChatArea from "./Components/ChatArea";
 import IdleStatus from "./Components/IdleStatus";
 import zChat from "./vendors/web-sdk";
+import ModaleEmail from './Components/ModaleEmail';
 
 class App extends Component {
 
@@ -15,13 +16,16 @@ class App extends Component {
 
   render(){
     return (
+
       <div className="container ">
         <div className="app hidden">
           <Header />
           <ChatArea />
+          <ModaleEmail/>
         </div>
           <IdleStatus />
       </div>
+     
     );
   }
 }

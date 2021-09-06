@@ -56,7 +56,11 @@ class InputText extends React.Component {
     e.target.value.trim();
     e.preventDefault();
   }
-
+  handleChatTranscription = () =>{
+    
+    document.querySelector(".emailModale").classList.toggle("open");
+    
+  }
   handleFileSend = (file) => {
  
     zChat.sendFile(file, (err, data) => { 
@@ -94,7 +98,7 @@ class InputText extends React.Component {
         <div className="features" >
           <label htmlFor="sendFile" title="Fichiers acceptés : .pdf .png .jpeg .txt"><img src={fileSend} alt='envoi de fichier'/></label>
           <input className="sendFile" onChange={(e) => this.handleFileSend(e.target.files[0])} type="file" id="sendFile" name="sendFile" alt="fichier" />
-          <div className = "more">...</div>
+          <div className="more" title="Recevoir la transcription du chat par mail" onClick={this.handleChatTranscription}>📧</div>
         </div>
       </footer>
     );
