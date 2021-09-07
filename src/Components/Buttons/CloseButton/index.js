@@ -14,7 +14,7 @@ class CloseButton extends React.Component {
   }
 
   render() {
-    return <span onClick={this.handleClick}>❌</span>;
+    return <div className="closeBtn" title="Interrompre le chat" onClick={this.handleClick}>❌</div>;
   }
 }
 

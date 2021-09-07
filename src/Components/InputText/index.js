@@ -1,12 +1,14 @@
 import React from "react";
 import zChat from "../../vendors/web-sdk";
 import paperPlane from "../../img/2.png";
+import login from "../../img/login.png";
 import fileSend from "../../img/fichier.png";
 import {
   sendVisitorFile,
   sendVisitorMessage
 } from "../../features/messages/messagesSlice";
 import { connect } from "react-redux";
+import CloseButton from "../Buttons/CloseButton";
 
 class InputText extends React.Component {
   constructor(props) {
@@ -78,6 +80,10 @@ class InputText extends React.Component {
 
   }
 
+  handleLogin = () => {
+    
+  }
+
   render() {
     return (
       <footer>
@@ -98,6 +104,8 @@ class InputText extends React.Component {
           <label htmlFor="sendFile" title="Fichiers acceptés : .pdf .png .jpeg .txt"><img src={fileSend} alt='envoi de fichier'/></label>
           <input className="sendFile" onChange={(e) => this.handleFileSend(e.target.files[0])} type="file" id="sendFile" name="sendFile" alt="fichier" />
           <div className="more" title="Recevoir la transcription du chat par mail" onClick={this.handleChatTranscription}>📧</div>
+          <div className="login" title="S'authentifier" onClick={this.handleLogin}><img src={login}/></div>
+          <CloseButton />
         </div>
       </footer>
     );

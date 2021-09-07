@@ -1,17 +1,13 @@
 import React from "react";
-import ReduceButton from '../Buttons/ReduceButton'
-import CloseButton from '../Buttons/CloseButton'
 
 class Header extends React.Component {
   
   handleClick = (e) => {
-
-    if (e.target.classList.contains('btn'))
-    return
     
-    document.querySelector(".app").classList.remove("reduced");
+    document.querySelector(".app").classList.toggle("reduced");
     
   }
+
 
   render() {
     return (
@@ -22,8 +18,6 @@ class Header extends React.Component {
         <div className="agentName">
           Subaru Connect'
         </div>
-        <ReduceButton />
-        <CloseButton />
       </header>
     );
   }

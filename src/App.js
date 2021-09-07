@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React, {Component} from "react";
 import Header from "./Components/Header";
 import ChatArea from "./Components/ChatArea";

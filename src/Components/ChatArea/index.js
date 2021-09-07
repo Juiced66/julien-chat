@@ -176,7 +176,6 @@ class ChatArea extends React.Component {
       if (message.messageType === "negativeRate")
         return <LogMessage msg={message.value} key={i} />;
       if(message.messageType === "agentFile"){
-        console.log('enter');
         const regexPdf = /.pdf$/i;
         const regexTxt = /.txt$/i;
         const regexPng = /.png$/i;

@@ -12,11 +12,11 @@ Npm start
 - Integration du rating du chat + commentaire (via le sdk).
 - Integration de bulles automatiques quand on envoie des liens youtube (un peu comme sur messenger). (Oembed)    
 - Integration de l'envoi de l'historique de chat par mail (via le sdk).
+-Configuration du serveur Express & MongoDB (Config/Router/Model/authMiddleware)
 
 Reste à faire : 
 
-- Integration de l'authentification du visiteur.
-- Meilleur état initial (animé?).
+- Integration de l'authentification du visiteur au front.
 
 
 Synopsys de l'application :
@@ -35,5 +35,5 @@ Avoir une fênetre de chat soignée qui disposera de toutes les fonctionnalités
 
 3) Technologies : 
 - Frontend à base de React et redux. (+ css)
-- Backend Zendesk + serveur pour l'authentification
+- Backend Zendesk + serveur pour l'authentification (Express + MongoDB)
 
