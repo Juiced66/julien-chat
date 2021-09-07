@@ -15,7 +15,7 @@ Npm start
 
 Reste à faire : 
 
-- Integration de l'authentification du visiteur (via le sdk).
+- Integration de l'authentification du visiteur.
 - Meilleur état initial (animé?).
 
 
@@ -35,5 +35,5 @@ Avoir une fênetre de chat soignée qui disposera de toutes les fonctionnalités
 
 3) Technologies : 
 - Frontend à base de React et redux. (+ css)
-- Backend Zendesk
+- Backend Zendesk + serveur pour l'authentification
 

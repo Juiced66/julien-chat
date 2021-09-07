@@ -81,7 +81,6 @@ class InputText extends React.Component {
   render() {
     return (
       <footer>
-
         <div className="textAreaBox">        
           <textarea
             className="inputText"
