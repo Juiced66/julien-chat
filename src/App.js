@@ -5,6 +5,7 @@ import ChatArea from "./Components/ChatArea";
 import IdleStatus from "./Components/IdleStatus";
 import zChat from "./vendors/web-sdk";
 import ModaleEmail from './Components/ModaleEmail';
+import ModaleLogin from './Components/ModaleLogin';
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
           <Header />
           <ChatArea />
           <ModaleEmail/>
+          <ModaleLogin />
         </div>
           <IdleStatus />
       </div>

@@ -9,6 +9,7 @@ const router = express.Router();
 //import du model User
 const User = require("../models/User");
 
+
 /**
  * @method - POST
  * @param - /signup
@@ -45,7 +46,7 @@ router.post(
             });
             if (user) {
                 return res.status(400).json({
-                    msg: "User Already Exists"
+                    message: "User Already Exists"
                 });
             }
 
@@ -94,6 +95,7 @@ router.post(
       })
     ],
     async (req, res) => {
+      console.log(req.body)
       const errors = validationResult(req);
   
       if (!errors.isEmpty()) {
@@ -155,7 +157,6 @@ router.post(
 
 router.get("/me", auth, async (req, res) => {
     try {
-      // request.user is getting fetched from Middleware after token authentication
       const user = await User.findById(req.user.id);
       res.json(user);
     } catch (e) {

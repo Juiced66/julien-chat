@@ -9,16 +9,10 @@ body {
 	position: relative;
 	height: 100vh;
   }
-  
   a {
 	color: inherit;
-  
-	/* blue colors for links too */
 	text-decoration: inherit;
-  
-	/* no underline */
   }
-  
   #root {
 	align-content: center;
 	position: absolute;
@@ -29,41 +23,30 @@ body {
 	display: flex;
 	width: 355px;
   }
-  
   .container {
 	height: 500px;
 	margin-top: 10px;
 	overflow: hidden;
 	width: 355px;
   }
-  
   .app {
 	position: relative;
 	border-radius: 20px;
 	height: 500px;
-  
-	/*Pour masquer la fenetre a l'état initial*/
-	/* margin-top: 500px; */
 	display: flex;
 	flex-direction: column;
 	width: 350px;
 	margin: 0;
 	transition: 0.65s;
-  
-	/*Etat Ouvert */
-	/* transform: translateY(-500px); */
   }
-  
   .closed {
 	/*Pour masquer la fenetre a l'état initial*/
 	margin-top: 500px;
   }
-  
   .reduced {
 	/* état intermédiaire */
 	margin-top: 440px;
   }
-  
   .hidden {
 	display: none !important;
   }
@@ -82,7 +65,6 @@ body {
 	justify-content: flex-end;
 	position: relative;
 	width: 100%;
-  
 	&::before {
 	  content: '';
 	  width: 20%;
@@ -95,7 +77,6 @@ body {
 	  animation-delay: 0s;
 	}
   }
-  
   .agentPic1 {
 	background: url(./img/avatar.jpg) 45% 45% border-box;
 	background-size: 40px;
@@ -108,7 +89,6 @@ body {
 	width: 40px;
 	overflow: hidden;
   }
-  
   .agentPic2 {
 	background: url(./img/avatar3.png) 45% 45% border-box;
 	background-size: 40px;
@@ -121,7 +101,6 @@ body {
 	width: 40px;
 	overflow: hidden;
   }
-  
   .agentPic3 {
 	background: url(./img/avatar2.png) 45% 45% border-box;
 	background-size: cover;
@@ -134,7 +113,6 @@ body {
 	width: 40px;
 	overflow: hidden;
   }
-  
   .agentName {
 	color: white;
 	font-weight: bold;
@@ -142,13 +120,11 @@ body {
 	top: 18px;
 	left: 130px;
   }
-  
   header span:first-child {
 	font-size: 1.2em;
 	font-weight: 900;
 	margin-top: 10px;
   }
-  
   span {
 	padding-top: 10px;
 	margin-right: 15px;
@@ -160,24 +136,19 @@ body {
   /* Chat area styles*/
   
   .chatArea {
-	/* position: relative; */
 	border: 1px solid black;
 	background-color: rgba(99, 93, 93, 0.85);
 	display: flex;
 	flex-direction: column;
 	height: 390px;
 	justify-content: flex-start;
-  
-	/* flex-wrap: auto; régle le pb de scroll */
 	overflow-y: auto;
-  
 	&::-webkit-scrollbar {
 	  width: 7px;
 	  height: 8px;
 	  background-color: #aaa;
 	}
   }
-  
   .msgAgent {
 	background-color: #93c1ee;
 	border: 1px solid black;
@@ -191,45 +162,35 @@ body {
 	position: relative;
 	width: 75%;
   }
-  
   .label {
 	position: absolute;
 	top: -2em;
 	font-size: 10px;
   }
-  
   .msgAgent > .label, .msgInfo > .label {
 	left: 10px;
   }
-  
   .msgUser > .label {
 	right: 10px;
   }
-  
   .title {
 	border-bottom: 1px solid black;
 	font-size: 1.2em;
 	margin-bottom: 10px;
 	width: 100%;
   }
-  
   .imgBox > img {
 	width: calc(480px/2);
 	height: calc(360px /2);
   }
-  
   .linkBox {
 	text-decoration: underline;
 	font-style: italic;
   }
-  
   .isTypingBox {
-	/* align-items: center; */
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 20px;
 	display: flex;
-  
-	/* flex-direction: column; */
 	justify-content: center;
 	height: 20px;
 	left: 5px;
@@ -238,16 +199,12 @@ body {
 	transform: scale(0.75);
 	position: absolute;
   }
-  
   .isTyping {
 	transform: translateY(-25%);
 	font-size: 50px;
 	font-weight: bold;
-  
-	/* padding-bottom: 0.8em; */
 	align-self: center;
   }
-  
   .msgUser {
 	align-self: flex-end;
 	background-color: #c19bd1;
@@ -262,10 +219,7 @@ body {
 	position: relative;
 	text-align: right;
 	width: 75%;
-  
-	/* flex-wrap: wrap; */
   }
-  
   .msgInfo {
 	align-self: center;
 	background-color: #58355E;
@@ -281,12 +235,10 @@ body {
 	text-align: center;
 	width: 60%;
   }
-  
   .btnRatingContainer {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-  
 	> div {
 	  background-color: #fff;
 	  border: 1px solid black;
@@ -295,7 +247,6 @@ body {
 	  padding: 6px;
 	}
   }
-  
   .msgLog {
 	align-self: center;
 	color: #fafafa;
@@ -304,12 +255,10 @@ body {
 	padding-top: 5px;
 	text-align: center;
   }
-  
   .mini {
 	width: 40px;
 	height: auto;
   }
-  
   .floatLeft {
 	margin-right: 8px;
 	float: left;
@@ -327,7 +276,6 @@ body {
 	border: 2px solid black;
 	position: relative;
   }
-  
   .textAreaBox {
 	display: flex;
 	border: 1px solid black;
@@ -340,7 +288,6 @@ body {
 	margin-top: 4px;
 	margin-left: 8px;
   }
-  
   .inputText {
 	background-color: #fff;
 	font-size: 16px;
@@ -354,7 +301,6 @@ body {
 	position: absolute;
 	outline: none;
   }
-  
   .paperPlaneBox {
 	right: 4%;
 	box-shadow: rgba(0, 0, 0, 0.95) 0px 3px 6px;
@@ -365,12 +311,10 @@ body {
 	border: 1px solid black;
 	background-color: #c0c0c0;
 	position: absolute;
-  
 	&:hover {
 	  transform: scale(1.1);
 	}
   }
-  
   .paperPlane {
 	cursor: pointer;
 	width: 33px;
@@ -378,7 +322,6 @@ body {
 	top: 13%;
 	position: absolute;
   }
-  
   .features {
 	margin-top: 4px;
 	margin-bottom: 10px;
@@ -386,7 +329,6 @@ body {
 	justify-content: flex-start;
 	width: 100%;
 	height: 30px;
-  
 	> * {
 	  border-radius: 1px;
 	  margin-top: 2px;
@@ -396,44 +338,35 @@ body {
 	  width: 15px;
 	  height: 15px;
 	  cursor: pointer;
-  
 	  &:hover {
 		background-color: #cfcfcf;
 	  }
-  
 	  &:active {
 		transform: scale(1.1);
 	  }
 	}
   }
-  
   .sendFile {
 	display: none;
   }
-  
   label {
 	content: "";
-  
 	> img {
 	  height: 15px;
 	  width: 15px;
 	}
   }
-  
   .more {
 	line-height: 16px;
 	text-align: center;
 	padding: 5px 10px 5px 4px;
   }
-  
   .login > img {
 	width: 100%;
   }
-  
   .closeBtn {
 	padding: 2px 8px 8px 2px;
   }
-  
   .idleStatus {
 	background: violet;
 	border-radius: 50%;
@@ -463,27 +396,22 @@ body {
 	bottom: -200px;
 	transition: 1s;
   }
-  
   .open {
 	bottom: 150px !important;
   }
-  
   .text {
 	font-size: 1.2em;
 	margin-bottom: 30px;
   }
-  
   .label {
 	position: absolute;
 	top: -1.3em;
 	font-size: 12px;
   }
-  
   #emailModale {
 	position: relative;
 	margin-bottom: 10px;
   }
-  
   .submit {
 	color: #fff;
 	display: inline-block;
@@ -496,12 +424,10 @@ body {
 	z-index: 1;
 	cursor: pointer;
 	margin-bottom: 5px;
-  
 	&:active {
 	  transform: scale(1.2);
 	  transition: 0.3s;
 	}
-  
 	&:after {
 	  content: '';
 	  position: absolute;
@@ -513,7 +439,6 @@ body {
 	  border-radius: 10rem;
 	  z-index: -2;
 	}
-  
 	&:before {
 	  content: '';
 	  position: absolute;
@@ -525,20 +450,16 @@ body {
 	  transition: all .3s;
 	  border-radius: 10rem;
 	  z-index: -1;
-	}
-  
+	} 
 	&:hover:before {
 	  width: 100%;
 	}
   }
-  
   /* Keyframes */
-  
   @keyframes shine {
 	0% {
 	  transform: translateX(0%);
 	}
-  
 	100% {
 	  transform: translateX(1000%);
 	}
