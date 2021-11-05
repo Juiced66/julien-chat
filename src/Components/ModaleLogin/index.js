@@ -33,22 +33,6 @@ class ModaleLogin extends React.Component {
   }
 
   handleLogin = () =>{
-
-
-    // const myHeaders = new Headers({
-    //     'Content-Type': 'application/json',
-    // });
-    // const options = {
-    //     method: 'POST',
-    //     headers: myHeaders,
-    //     body:JSON.stringify({
-    //         email : email,
-    //         password : password
-    //     }),
-    //     mode: "no-cors",
-        
-    // };
-
     (async () => {
         const email = document.querySelector('#emailLogin').value
         const password = document.querySelector('#password').value
@@ -66,27 +50,43 @@ class ModaleLogin extends React.Component {
         const content = await rawResponse.json();
       
         console.log(content);
+        if(content.token !== undefined && content.message === undefined){
+            this.handleSessionStorage(content.token);
+            this.handleZendeskAuth();
+            return
+        }
+        else alert(content.message)
       })();
 
-    // if(response.token !== undefined && response.message === undefined){
-    //     this.handleSessionStorage(response.token);
-    //     this.handleZendeskAuth(response.token);
-    //     return
-    //}
-    //else alert(response.message)
   }
 
   handleSessionStorage = (token) => window.sessionStorage.set('token',token)
     
   
 
-  handleZendeskAuth = (token) =>{
+  handleZendeskAuth = () =>{
     zChat.endChat();
     zChat.init({
         account_key: 'yBsDkMbwWtUaAOdP3ygefGPX12rOXMol',
         authentication: {
-            jwt_fn: token 
+            jwt_fn: function(callback) {
+              fetch('http://localhost:5000/user/login', 
+              {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                  email : document.querySelector('#emailLogin').value,
+                  password : document.querySelector('#password').value
+              })}).then(function(res) {
+                  res.text().then(function(jwt) {
+                      callback(jwt);
+                  });
+              }) 
             }
+          }
     });
     document.querySelector('.loginModale').classList.add('hidden');
   }
